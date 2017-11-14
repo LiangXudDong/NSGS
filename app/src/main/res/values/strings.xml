@@ -1,0 +1,31 @@
+<resources>
+    <string name="app_name">NsgShop</string>
+    <string name="app_home">首页</string>
+    <string name="app_fclass">发现</string>
+    <string name="app_cart">购物车</string>
+    <string name="app_user">我的</string>
+    <string name="app_shuru">搜索一下</string>
+    <string name="user_nav_shangpin">商品</string>
+    <string name="user_nav_dianpu">店铺</string>
+    <string name="user_nav_zuji">我的足迹</string>
+    <string name="user_dindan_weifukuan">未付款</string>
+    <string name="user_dindan_daifukuan">待付款</string>
+    <string name="user_dindan_daishouhuo">待收货</string>
+    <string name="user_dindan_daipingjia">待评价</string>
+    <string name="user_dindan_tuikuan">退款/货</string>
+    <string name="user_caichan_yucunkuan">预存款</string>
+    <string name="user_caichan_chongzhika">充值卡</string>
+    <string name="user_caichan_daijinquan">代金券</string>；
+    <string name="user_caichan_hongbao">红包</string>
+    <string name="user_caichan_jifen">积分</string>
+    <string name="user_shouhuodizhi">收货地址</string>
+    <string name="user_xitongshezhi">系统设置</string>
+    <string name="deng_name">请输入用户名</string>
+    <string name="home_fragment_nanshijinping">|男士精品</string>
+    <string name="deng_pass">请输入密码</string>
+    <string name="denglu">登录</string>
+    <string name="zhuce">注册账号</string>
+    <string name="zhaohui">找回密码</string>
+    <string name="action_settings">Settings</string>
+
+</resources>
