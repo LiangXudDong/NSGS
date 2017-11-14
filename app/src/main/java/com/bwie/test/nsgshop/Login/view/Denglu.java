@@ -15,6 +15,8 @@ import com.bwie.test.nsgshop.base.MyBaseActivity;
 import com.bwie.test.nsgshop.register.view.Zhuce;
 import com.bwie.test.nsgshop.utils.SharedPreferencesUtils;
 
+import org.greenrobot.eventbus.EventBus;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -43,6 +45,7 @@ public class Denglu extends MyBaseActivity implements Iview{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_denglu);
         ButterKnife.bind(this);
+        EventBus.getDefault().register(Denglu.class);
     }
 
     @OnClick({R.id.denglu, R.id.zhuce, R.id.wang})
