@@ -36,6 +36,7 @@ public class Denglu extends MyBaseActivity implements Iview{
     @BindView(R.id.zfb)
     ImageView zfb;
     @BindView(R.id.wx)
+
     ImageView wx;
     String name1;
     String pass1;
