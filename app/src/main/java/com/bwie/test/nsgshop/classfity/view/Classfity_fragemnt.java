@@ -66,6 +66,7 @@ public class Classfity_fragemnt extends MyBaseFragment implements Iview, BaseFra
         pu.setliftadapter();
         pu.setitemadapter();
         return view;
+
     }
 
 
