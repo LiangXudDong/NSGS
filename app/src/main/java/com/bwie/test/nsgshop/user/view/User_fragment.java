@@ -84,7 +84,6 @@ public class User_fragment extends MyBaseFragment implements BaseFragment {
     Unbinder unbinder;
     @BindView(R.id.tc)
     Button tc;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -108,8 +107,6 @@ public class User_fragment extends MyBaseFragment implements BaseFragment {
         String param = (String) SharedPreferencesUtils.getParam(getActivity(), "name", "没有登录");
         name.setText(param);
     }
-
-
 
     @OnClick({R.id.touxiang, R.id.tc})
     public void onViewClicked(View view) {

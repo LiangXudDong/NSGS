@@ -16,6 +16,8 @@ import com.bwie.test.nsgshop.register.view.Zhuce;
 import com.bwie.test.nsgshop.utils.SharedPreferencesUtils;
 
 import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -46,7 +48,7 @@ public class Denglu extends MyBaseActivity implements Iview{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_denglu);
         ButterKnife.bind(this);
-        EventBus.getDefault().register(Denglu.class);
+        EventBus.getDefault().register(Denglu.this);
     }
 
     @OnClick({R.id.denglu, R.id.zhuce, R.id.wang})
@@ -63,22 +65,10 @@ public class Denglu extends MyBaseActivity implements Iview{
                 break;
             case R.id.zhuce:
                 Intent in=new Intent(Denglu.this,Zhuce.class);
-                startActivityForResult(in,1);
+                startActivity(in);
                 break;
             case R.id.wang:
                 break;
-        }
-    }
-
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (resultCode==1){
-            String pass2 = data.getStringExtra("pass");
-            String name2 = data.getStringExtra("name");
-            name.setText(name2);
-            pass.setText(pass2);
         }
     }
     public void cheng(String text){
@@ -89,6 +79,13 @@ public class Denglu extends MyBaseActivity implements Iview{
     }
     public void error(String text){
         Toast.makeText(this,text, Toast.LENGTH_SHORT).show();
+    }
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void userEventBus(AnyEventType userEvent){
+        String name3 = userEvent.getName();
+        String pass3 = userEvent.getPass();
+        name.setText(name3);
+        pass.setText(pass3);
     }
 }
 

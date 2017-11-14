@@ -1,6 +1,5 @@
 package com.bwie.test.nsgshop.register.view;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,9 +7,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bwie.test.nsgshop.Login.view.AnyEventType;
 import com.bwie.test.nsgshop.R;
 import com.bwie.test.nsgshop.base.MyBaseActivity;
 import com.bwie.test.nsgshop.register.present.PresentUser;
+
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -62,13 +64,8 @@ public class Zhuce extends MyBaseActivity implements Iview, com.bwie.test.nsgsho
                 }
                 break;
             case R.id.fan:
-                if(y.equals("0")){
-                    Intent inte=getIntent();
-                    inte.putExtra("name",name1);
-                    inte.putExtra("pass",pass1);
-                    setResult(1,inte);
-                    finish();
-                }
+                EventBus.getDefault().post(new AnyEventType(name1,pass1));
+                finish();
                 break;
         }
     }

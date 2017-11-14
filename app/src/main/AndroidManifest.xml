@@ -28,7 +28,8 @@
         <activity android:name=".base.MyBaseActivity" />
         <activity android:name=".MyWebView" />
         <activity android:name=".Login.view.Denglu" />
-        <activity android:name=".register.view.Zhuce"></activity>
+        <activity android:name=".register.view.Zhuce" />
+        <activity android:name=".sousuo.Sousuo"></activity>
     </application>
 
 </manifest>

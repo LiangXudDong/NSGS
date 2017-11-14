@@ -17,6 +17,7 @@ import com.bwie.test.nsgshop.base.MyBaseFragment;
 import com.bwie.test.nsgshop.home.bean.HomeBean;
 import com.bwie.test.nsgshop.home.model.HomeAdapter;
 import com.bwie.test.nsgshop.home.present.PresentUser;
+import com.bwie.test.nsgshop.sousuo.Sousuo;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.xys.libzxing.zxing.activity.CaptureActivity;
 
@@ -86,6 +87,8 @@ public class Home_fragment extends MyBaseFragment implements Iview {
                 startActivity(intent);
                 break;
             case R.id.sousuo:
+                Intent in=new Intent(MyApp.getContext(), Sousuo.class);
+                getActivity().startActivity(in);
                 break;
             case R.id.news:
                 break;
