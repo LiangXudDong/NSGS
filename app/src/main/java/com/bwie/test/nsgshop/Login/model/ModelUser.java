@@ -37,7 +37,7 @@ public class ModelUser implements Imodel{
                     public void onNext(LoginBean loginBean) {
                         Log.d("maina",loginBean.toString());
                         String code = loginBean.getCode();
-                        lk.loginIsOk(code,loginBean.getMsg());
+                        lk.loginIsOk(code,loginBean.getMsg(),loginBean.getData().getUid()+"");
                     }
                 });
     }

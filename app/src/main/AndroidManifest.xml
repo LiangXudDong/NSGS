@@ -18,7 +18,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+            android:configChanges="orientation|keyboardHidden"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,7 +31,12 @@
         <activity android:name=".MyWebView" />
         <activity android:name=".Login.view.Denglu" />
         <activity android:name=".register.view.Zhuce" />
-        <activity android:name=".sousuo.Sousuo"></activity>
+        <activity android:name=".sousuo.Sousuo" />
+        <activity android:name=".liebiao.view.ShangpinActivity">
+        </activity>
+        <activity android:name=".xiangqing.view.XiangqingActivity">
+
+        </activity>
     </application>
 
 </manifest>

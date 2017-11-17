@@ -20,7 +20,7 @@ public class ModelUser implements Imodel{
 
     private HashMap<String, String> map;
 
-    public void initData(String name, String pass, final LoginIsOk lk){
+    public void initData(String name, String pass, final Zhuc lk){
         map = new HashMap();
         map.put("mobile",name);
         map.put("password",pass);
@@ -43,7 +43,7 @@ public class ModelUser implements Imodel{
                     public void onNext(RegisterBean registerBean) {
                         String code = registerBean.getCode();
                         String msg = registerBean.getMsg();
-                        lk.loginIsOk(code,msg);
+                        lk.setzhl(code,msg);
                     }
                 });
     }

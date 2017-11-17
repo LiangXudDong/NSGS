@@ -35,9 +35,21 @@ public class Shangpingliebiao extends RecyclerView.Adapter<Shangpingliebiao.MyVi
                 false));
         return holder;
     }
+    public interface OnItemClickLitener
+    {
+        void onItemClick(View view, int position);
+        void onItemLongClick(View view, int position);
+    }
 
+    private HomeAdapter.OnItemClickLitener mOnItemClickLitener;
+
+    public void setOnItemClickLitener(HomeAdapter.OnItemClickLitener mOnItemClickLitener)
+    {
+        this.mOnItemClickLitener = mOnItemClickLitener;
+
+    }
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(final MyViewHolder holder, int position) {
         holder.tv.setText(mDatas.get(position).getTitle());
         String url = mDatas.get(position).getImg();
         if (url.equals("")||url==null){
@@ -49,6 +61,28 @@ public class Shangpingliebiao extends RecyclerView.Adapter<Shangpingliebiao.MyVi
                     .setAutoPlayAnimations(true)
                     .build();
             holder.img.setController(controller);
+        }
+        if(mOnItemClickLitener!=null){
+            holder.itemView.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View v)
+                {
+                    int pos = holder.getLayoutPosition();
+                    mOnItemClickLitener.onItemClick(holder.itemView, pos);
+                }
+            });
+
+            holder.itemView.setOnLongClickListener(new View.OnLongClickListener()
+            {
+                @Override
+                public boolean onLongClick(View v)
+                {
+                    int pos = holder.getLayoutPosition();
+                    mOnItemClickLitener.onItemLongClick(holder.itemView, pos);
+                    return false;
+                }
+            });
         }
     }
 

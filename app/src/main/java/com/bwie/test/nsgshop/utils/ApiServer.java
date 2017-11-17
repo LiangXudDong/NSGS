@@ -2,12 +2,16 @@ package com.bwie.test.nsgshop.utils;
 
 
 import com.bwie.test.nsgshop.Login.bean.LoginBean;
+import com.bwie.test.nsgshop.cart.bean.CartBean;
 import com.bwie.test.nsgshop.classfity.bean.DataleftBean;
 import com.bwie.test.nsgshop.classfity.bean.DatarightBean;
 import com.bwie.test.nsgshop.classfity.bean.DateGridBean;
 import com.bwie.test.nsgshop.classfity.bean.Datebeanitem;
 import com.bwie.test.nsgshop.home.bean.HomeBean;
+import com.bwie.test.nsgshop.liebiao.bean.Shangpinl;
 import com.bwie.test.nsgshop.register.bean.RegisterBean;
+import com.bwie.test.nsgshop.xiangqing.bean.JIarugouwuche;
+import com.bwie.test.nsgshop.xiangqing.bean.Shangpinlx;
 
 import java.util.HashMap;
 
@@ -37,4 +41,12 @@ public interface ApiServer {
     Observable<Datebeanitem> getitem();
     @GET("mobile/index.php?act=goods_class")
     Observable<DatarightBean> getreight(@Query("gc_id") String i);
+    @GET("product/getProducts")
+    Observable<Shangpinl> getshangpl(@Query("pscid") String i);
+    @GET("product/getProductDetail")
+    Observable<Shangpinlx> getshangplx(@Query("pid") String i);
+    @GET("product/addCart")
+    Observable<JIarugouwuche> setgc(@Query("uid") String uid,@Query("pid") String pid,@Query("sellerid") String sellerid);
+    @GET("product/getCarts?uid=2521")
+    Observable<CartBean> getgc();
 }

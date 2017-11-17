@@ -12,23 +12,20 @@ import com.bwie.test.nsgshop.Login.view.Iview;
 public class PresentUser {
     private Imodel imodel;
     private Iview iview;
-
     public PresentUser(Iview iview) {
         this.iview = iview;
         this.imodel=new ModelUser();
     }
     public void login(String name,String pass){
         imodel.initData(name, pass, new LoginIsOk() {
-
             @Override
-            public void loginIsOk(String code, String mag) {
-                if(code.equals("0")){
-                    iview.cheng(mag);
+            public void loginIsOk(String code, String mag, String uid) {
+                if(code.equals("0")) {
+                    iview.cheng(mag, uid);
                 }else{
                     iview.error(mag);
                 }
             }
         });
-
     }
 }

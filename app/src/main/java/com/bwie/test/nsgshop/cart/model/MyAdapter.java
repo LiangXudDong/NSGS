@@ -1,16 +1,19 @@
 package com.bwie.test.nsgshop.cart.model;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.CheckBox;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bwie.test.nsgshop.R;
 import com.bwie.test.nsgshop.cart.bean.Group;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.interfaces.DraweeController;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import java.util.ArrayList;
 
@@ -96,12 +99,14 @@ public class MyAdapter extends BaseExpandableListAdapter {
             view = LayoutInflater.from(context).inflate(R.layout.group_item,viewGroup,false);
             holder  = new GroupHolder();
             holder.checkBox = (CheckBox) view.findViewById(R.id.group_check);
+            holder.title = (TextView) view.findViewById(R.id.sjid);
             view.setTag(holder);
         }else{
             holder = (GroupHolder) view.getTag();
         }
         holder.checkBox.setText(groups.get(i).getName());
         holder.checkBox.setChecked(groups.get(i).isCheck());
+        holder.title.setText(groups.get(i).getName());
         if (mOnCheckChangeListener != null&&mOnShouldChangeMoneyListener != null){
             holder.checkBox.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -121,7 +126,7 @@ public class MyAdapter extends BaseExpandableListAdapter {
             view = LayoutInflater.from(context).inflate(R.layout.child_item,viewGroup,false);
             holder = new ChildHolder();
             holder.checkBox = (CheckBox) view.findViewById(R.id.child_check);
-            holder.imageView = (ImageView) view.findViewById(R.id.child_img);
+            holder.imageView = (SimpleDraweeView) view.findViewById(R.id.child_img);
             holder.name = (TextView) view.findViewById(R.id.child_name);
             holder.num = (TextView) view.findViewById(R.id.child_num);
             holder.jian = (TextView) view.findViewById(R.id.child_jian);
@@ -132,7 +137,17 @@ public class MyAdapter extends BaseExpandableListAdapter {
             holder = (ChildHolder) view.getTag();
         }
         holder.checkBox.setChecked(groups.get(i).getChildren().get(i1).isCheck());
-        holder.imageView.setImageResource(R.mipmap.ic_launcher);
+        String url = groups.get(i).getChildren().get(i1).getImg();
+        if (url.equals("")||url==null){
+            holder.imageView.setImageResource(R.mipmap.ic_launcher);
+        }else {
+            Uri uri =  Uri.parse(url);
+            DraweeController controller = Fresco.newDraweeControllerBuilder()
+                    .setUri(uri)
+                    .setAutoPlayAnimations(true)
+                    .build();
+            holder.imageView.setController(controller);
+        }
         holder.name.setText(groups.get(i).getChildren().get(i1).getName());
         holder.num.setText(groups.get(i).getChildren().get(i1).getNum()+"");
         holder.price.setText(groups.get(i).getChildren().get(i1).getPrice()+"");
@@ -172,10 +187,11 @@ public class MyAdapter extends BaseExpandableListAdapter {
     }
     class GroupHolder {
         CheckBox checkBox;
+        TextView title;
     }
     class ChildHolder{
         CheckBox checkBox;
-        ImageView imageView;
+        SimpleDraweeView imageView;
         TextView name,num,jian,jia,price;
     }
 }

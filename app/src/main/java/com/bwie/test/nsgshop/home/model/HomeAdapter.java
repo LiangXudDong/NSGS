@@ -19,6 +19,7 @@ import com.bwie.test.nsgshop.home.view.Item_b;
 import com.bwie.test.nsgshop.home.view.Item_c;
 import com.bwie.test.nsgshop.home.view.Item_d;
 import com.bwie.test.nsgshop.home.view.Item_e;
+import com.bwie.test.nsgshop.liebiao.view.ShangpinActivity;
 import com.bwie.test.nsgshop.utils.GlideImaGlideImageLoader;
 import com.youth.banner.BannerConfig;
 import com.youth.banner.transformer.ZoomOutSlideTransformer;
@@ -144,7 +145,20 @@ public class HomeAdapter extends RecyclerView.Adapter {
                     .build();
             ((Item_e) holder).img.setController(controller);*/
             ((Item_e) holder).rc3.setLayoutManager(new GridLayoutManager(context,2));
-            ((Item_e) holder).rc3.setAdapter(new Shangpingliebiao(zulist,context));
+            Shangpingliebiao shangpingliebiao = new Shangpingliebiao(zulist, context);
+            ((Item_e) holder).rc3.setAdapter(shangpingliebiao);
+            shangpingliebiao.setOnItemClickLitener(new OnItemClickLitener() {
+                @Override
+                public void onItemClick(View view, int position) {
+                    Intent inte=new Intent(context, ShangpinActivity.class);
+                    context.startActivity(inte);
+                }
+                @Override
+                public void onItemLongClick(View view, int position) {
+
+                }
+            });
+
         }
 
     }

@@ -5,4 +5,5 @@ package com.bwie.test.nsgshop.cart.model;
  */
 
 public interface Imodel {
+    void initData(String uid,final Getgclist ss);
 }

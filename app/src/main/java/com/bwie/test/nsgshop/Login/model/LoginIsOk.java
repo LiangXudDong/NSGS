@@ -5,5 +5,5 @@ package com.bwie.test.nsgshop.Login.model;
  */
 
 public interface LoginIsOk {
-    void loginIsOk(String code,String mag);
+    void loginIsOk(String code,String mag,String uid);
 }

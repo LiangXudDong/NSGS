@@ -5,6 +5,6 @@ package com.bwie.test.nsgshop.Login.view;
  */
 
 public interface Iview {
-    void cheng(String text);
+    void cheng(String text,String uid);
     void error(String text);
 }

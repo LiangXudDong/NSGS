@@ -96,7 +96,7 @@ public class Home_fragment extends MyBaseFragment implements Iview {
     }
 
     public void GetDate(HomeBean.DataBean data) {
-        ha = new HomeAdapter(data, MyApp.getContext());
+        ha = new HomeAdapter(data,getActivity());
         xreXrv.setAdapter(ha);
 
     }

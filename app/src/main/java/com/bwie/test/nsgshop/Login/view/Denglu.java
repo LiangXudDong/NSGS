@@ -66,15 +66,17 @@ public class Denglu extends MyBaseActivity implements Iview{
             case R.id.zhuce:
                 Intent in=new Intent(Denglu.this,Zhuce.class);
                 startActivity(in);
+                finish();
                 break;
             case R.id.wang:
                 break;
         }
     }
-    public void cheng(String text){
+    public void cheng(String text,String uid){
         Toast.makeText(this,text, Toast.LENGTH_SHORT).show();
         SharedPreferencesUtils.setParam(Denglu.this,"name",name1);
         SharedPreferencesUtils.setParam(Denglu.this,"pass",pass1);
+        SharedPreferencesUtils.setParam(Denglu.this,"uid",uid);
         finish();
     }
     public void error(String text){

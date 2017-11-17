@@ -11,6 +11,7 @@ import com.bwie.test.nsgshop.Login.view.AnyEventType;
 import com.bwie.test.nsgshop.R;
 import com.bwie.test.nsgshop.base.MyBaseActivity;
 import com.bwie.test.nsgshop.register.present.PresentUser;
+import com.bwie.test.nsgshop.utils.SharedPreferencesUtils;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -71,8 +72,12 @@ public class Zhuce extends MyBaseActivity implements Iview, com.bwie.test.nsgsho
     }
 
     @Override
-    public void cheng(String text) {
+    public void cheng(String text, String uid) {
         Toast.makeText(this,text, Toast.LENGTH_SHORT).show();
+        SharedPreferencesUtils.setParam(Zhuce.this,"name",name1);
+        SharedPreferencesUtils.setParam(Zhuce.this,"pass",pass1);
+        SharedPreferencesUtils.setParam(Zhuce.this,"uid",uid);
+        finish();
     }
 
     @Override
@@ -82,8 +87,8 @@ public class Zhuce extends MyBaseActivity implements Iview, com.bwie.test.nsgsho
 
     @Override
     public void zcheng(String text) {
-        y="0";
         Toast.makeText(this,text, Toast.LENGTH_SHORT).show();
+
     }
 
     @Override

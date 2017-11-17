@@ -10,7 +10,6 @@ public class Child {
     private int num;
     private boolean check;
     private int price;
-
     public Child(String name, String img, int num, boolean check, int price) {
         this.name = name;
         this.img = img;
